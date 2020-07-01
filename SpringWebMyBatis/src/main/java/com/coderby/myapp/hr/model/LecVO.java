@@ -2,11 +2,19 @@ package com.coderby.myapp.hr.model;
 import java.sql.Date;
 public class LecVO {
 	
+	private int seq_id;
 	private int lec_id;
 	private String lec_name =null;
 	private Date lec_start = null;
 	private Date lec_end = null;
 	
+	
+	public int getSeq_id() {
+		return seq_id;
+	}
+	public void setSeq_id(int seq_id) {
+		this.seq_id = seq_id;
+	}
 	public int getLec_id() {
 		return lec_id;
 	}

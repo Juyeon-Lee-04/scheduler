@@ -15,6 +15,7 @@ public class AssignVO {
 	public int getLec_id() {
 		return lec_id;
 	}
+	
 	public void setLec_id(int lec_id) {
 		this.lec_id = lec_id;
 	}

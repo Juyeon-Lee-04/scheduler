@@ -10,6 +10,7 @@ import com.coderby.myapp.hr.dao.IMyappRepository;
 import com.coderby.myapp.hr.model.AssignVO;
 import com.coderby.myapp.hr.model.EntVO;
 import com.coderby.myapp.hr.model.LecVO;
+import com.coderby.myapp.hr.model.MemberVO;
 
 
 @Service
@@ -23,7 +24,7 @@ public class MyappService implements IMyappService {
 	}
 
 	@Override
-	public int getLecCount() {
+	public int getLecCount() {	
 		return myappRepository.getLecCount();
 	}
 
@@ -49,15 +50,14 @@ public class MyappService implements IMyappService {
 	}
 
 	
-
 	@Override
-	public void deleteEnt(int ent_id) {
-		myappRepository.deleteEnt(ent_id);
+	public void deleteEnt(int ent_id,int seq_id) {
+		myappRepository.deleteEnt(ent_id,seq_id);
 	}
 
 	@Override
-	public void deleteLec(int lec_id) {
-		myappRepository.deleteLec(lec_id);
+	public void deleteLec(int lec_id,int seq_id) {
+		myappRepository.deleteLec(lec_id,seq_id);
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class MyappService implements IMyappService {
 	}
 
 	@Override
-	public void deleteAssign(int lec_id, String asign_name) {
+	public void deleteAssign(int lec_id,String asign_name) {
 		myappRepository.deleteAssign(lec_id, asign_name);
 		
 	}
@@ -90,13 +90,13 @@ public class MyappService implements IMyappService {
 	}
 
 	@Override
-	public List<Map<String, Object>> getListAssign(int lec_id) {
-		return myappRepository.getListAssign(lec_id);
+	public List<Map<String, Object>> getListAssign(int lec_id,int seq_id) {
+		return myappRepository.getListAssign(lec_id,seq_id);
 	}
 
 	@Override
-	public List<Map<String, Object>> getListLec(int lec_id) {
-		return myappRepository.getListLec(lec_id);
+	public List<Map<String, Object>> getListLec(int lec_id,int seq_id) {
+		return myappRepository.getListLec(lec_id,seq_id);
 	}
 
 	@Override
@@ -110,13 +110,13 @@ public class MyappService implements IMyappService {
 	}
 
 	@Override
-	public EntVO getEntInfo(int ent_id) {
-		return myappRepository.getEntInfo(ent_id);
+	public EntVO getEntInfo(int ent_id,int seq_id) {
+		return myappRepository.getEntInfo(ent_id,seq_id);
 	}
 
 	@Override
-	public LecVO getLecInfo(int lec_id) {
-		return myappRepository.getLecInfo(lec_id);
+	public LecVO getLecInfo(int lec_id,int seq_id) {
+		return myappRepository.getLecInfo(lec_id,seq_id);
 	}
 
 	@Override
@@ -124,6 +124,62 @@ public class MyappService implements IMyappService {
 		return myappRepository.getAssignInfo(lec_id, asign_name);
 	}
 
+	@Override
+	public List<Map<String, Object>> getListMember(int seq_id) {
+		return getListMember(seq_id);
+	}
 
+	@Override
+	public List<Map<String, Object>> getListMember(String mem_id, String mem_pw) {
+		return getListMember(mem_id,mem_pw);
+	}
+
+	@Override
+	public List<Map<String, Object>> getListMember() {
+		return getListMember();
+	}
+
+	@Override
+	public MemberVO getMemberInfo(int seq_id) {
+		return getMemberInfo(seq_id);
+	}
+
+	@Override
+	public MemberVO getMemberInfo(String mem_pw) {
+		return getMemberInfo(mem_pw);
+	}
+
+	@Override
+	public void updateMember(MemberVO mem) {
+		myappRepository.updateMember(mem);
+	}
+
+	@Override
+	public void insertMember(MemberVO mem) {
+		myappRepository.insertMember(mem);
+	}
+
+	@Override
+	public void deleteMember(String mem_id, String mem_pw) {
+		myappRepository.deleteMember(mem_id,mem_pw);
+	}
+
+	@Override
+	public int getSeqFromEnt(int ent_id) {
+		return myappRepository.getSeqFromEnt(ent_id);
+	}
+
+	@Override
+	public int getSeqFromLec(int lec_id) {
+		return myappRepository.getSeqFromLec(lec_id);
+		
+	}
+
+	@Override
+	public MemberVO getMemberInfo(String mem_id, String mem_pw) {
+		return myappRepository.getMemberInfo(mem_id, mem_pw);
+	}
+
+	
 
 }

@@ -3,7 +3,8 @@ package com.coderby.myapp.hr.model;
 import java.sql.Date;
 
 public class EntVO {
-
+	
+	private int seq_id;
 	private int ent_id;
 	private String ent_name=null;
 	private Date paper_end = null;
@@ -13,6 +14,17 @@ public class EntVO {
 	public int getEnt_id() {
 		return ent_id;
 	}
+
+	
+	public int getSeq_id() {
+		return seq_id;
+	}
+
+
+	public void setSeq_id(int seq_id) {
+		this.seq_id = seq_id;
+	}
+
 
 	public void setEnt_id(int ent_id) {
 		this.ent_id = ent_id;
