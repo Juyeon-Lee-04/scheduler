@@ -215,4 +215,10 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		return "redirect:/enterprise";
 	}
 	
+	@RequestMapping(value="/login")
+	public String login(Model model)
+	{
+		return "sch/login/login";
+	}
+	
 }

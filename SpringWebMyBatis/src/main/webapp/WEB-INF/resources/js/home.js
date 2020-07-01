@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-
+	
 	var currentTitle = document.getElementById('current-year-month');
 	var calendarBody = document.getElementById('calendar-body');
 	var today = new Date();
