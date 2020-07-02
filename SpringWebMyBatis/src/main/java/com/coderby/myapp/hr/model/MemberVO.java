@@ -29,6 +29,11 @@ public class MemberVO {
 	public void setMem_name(String mem_name) {
 		this.mem_name = mem_name;
 	}
+	@Override
+	public String toString() {
+		return "MemberVO [seq_id=" + seq_id + ", mem_id=" + mem_id + ", mem_pw=" + mem_pw + ", mem_name=" + mem_name
+				+ "]";
+	}
 	
 	
 	

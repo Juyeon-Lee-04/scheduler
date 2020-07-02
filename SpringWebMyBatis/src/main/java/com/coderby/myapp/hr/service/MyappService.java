@@ -136,7 +136,7 @@ public class MyappService implements IMyappService {
 
 	@Override
 	public List<Map<String, Object>> getListMember() {
-		return getListMember();
+		return myappRepository.getListMember();
 	}
 
 	@Override

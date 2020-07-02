@@ -55,7 +55,7 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		return "home";
 	}
 	
-	// ----------list ���------------
+	// ----------list 占쏙옙占�------------
 	@RequestMapping(value="/enterprise")
 	public String getAllEnt(Model model)
 	{
@@ -77,7 +77,7 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		return "sch/lecture";
 	}
 	
-	// ------�ϳ��� ���------------
+	// ------占싹놂옙占쏙옙 占쏙옙占�------------
 	@RequestMapping(value="/lecture/{lec_id}")
 	public String getIdLec(@PathVariable int lec_id, Model model)
 	{
@@ -263,20 +263,14 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		return "redirect:/enterprise";
 	}
 	
-<<<<<<< HEAD
-	@RequestMapping(value="/login")
-=======
 	//----------Login------------
 	
 	@RequestMapping(value="/member/login")
->>>>>>> up/master
 	public String login(Model model)
 	{
 		return "sch/login/login";
 	}
-	
-<<<<<<< HEAD
-=======
+
 	@RequestMapping(value = "/member/login", method = RequestMethod.POST)
 	public String login(MemberVO member, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
 		logger.info("post login");
@@ -294,14 +288,17 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 			}
 		}
 		
+		System.out.println(login);
+		
 		if(login == null) {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
+			return "redirect:/member/login";
 		}else {
 			session.setAttribute("member", login);
+			return "redirect:/";
 		}
 		
-		return "redirect:/member/login";
 	}
 	
 	@RequestMapping(value = "/member/logout", method = RequestMethod.GET)
@@ -312,5 +309,18 @@ private static final Logger logger = LoggerFactory.getLogger(MyappController.cla
 		return "redirect:/member/login";
 	}
 	
->>>>>>> up/master
+	@RequestMapping(value = "/member/register", method = RequestMethod.GET)
+	public String register() throws Exception{
+		
+		return "sch/login/register";
+	}
+	
+	@RequestMapping(value = "/member/register", method = RequestMethod.POST)
+	public String registerMember(MemberVO member) throws Exception{
+		
+		myappService.insertMember(member);
+		
+		return "redirect:/member/login";
+	}
+
 }
